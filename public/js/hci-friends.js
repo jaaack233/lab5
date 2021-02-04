@@ -1,8 +1,10 @@
 'use strict';
 
+
 // Call this function when the page loads (the "ready" event)
 $(document).ready(function() {
 	initializePage();
+	$(".name").click(nameClickHandler);
 })
 
 /*
@@ -44,3 +46,11 @@ function anagrammedName(name) {
 		return name;
 	}
 }
+
+function nameClickHandler(e) {
+	e.preventDefault();
+	let currentName = $(this).text();
+	let newName = anagrammedName(currentName);
+	$(this).text(newName);
+}
+
